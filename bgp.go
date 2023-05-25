@@ -267,7 +267,7 @@ func (r *bgpPathAttributeReader) Next() (*BGPPathAttribute, error) {
 	case 35:
 		attr.Value = AS(valueBytes)
 	default:
-		return nil, fmt.Errorf("unknown BGP path attribute type code: %d", attr.TypeCode)
+		attr.Value = valueBytes
 	}
 
 	return attr, err
